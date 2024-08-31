@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3d hover effect</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        background-image: linear-gradient(90deg, black 45%, rgb(129, 129, 129));
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > .row {
+          width: 70%;
+          height: 60%;
+          display: flex;
+          perspective: 60rem;
+          > div {
+            width: 60px;
+            height: 100%;
+            display: flex;
+            flex-grow: 1;
+            margin: 0 2px;
+            transition: 0.6s;
+            position: relative;
+            background-size: cover;
+            filter: grayscale(1) brightness(0.5);
+            > figure {
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              position: relative;
+              > img {
+                width: 600px;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                left: -250px;
+                &:hover {
+                  animation: img 10s infinite linear;
+                }
+              }
+            }
+            &:hover {
+              transform: translateZ(17.5rem) scale(1.05);
+              filter: inherit;
+            }
+            &:hover + * {
+              transform: translateZ(14.5rem) rotateY(35deg);
+              filter: grayscale(0.2) brightness(0.9);
+              z-index: -1;
+            }
+            &:hover + * + * {
+              transform: translateZ(9.5rem) rotateY(40deg);
+              filter: grayscale(0.4) brightness(0.8);
+              z-index: -2;
+            }
+            &:hover + * + * + * {
+              transform: translateZ(4.5rem) rotateY(35deg);
+              filter: grayscale(0.6) brightness(0.7);
+              z-index: -3;
+            }
+            &:hover + * + * + * + * {
+              transform: translateZ(1.5rem) rotateY(25deg);
+              filter: grayscale(0.8) brightness(0.6);
+              z-index: -4;
+            }
+            &:has(+ :hover) {
+              transform: translateZ(14.5rem) rotateY(-35deg);
+              filter: grayscale(0.2) brightness(0.9);
+            }
+            &:has(+ * + :hover) {
+              transform: translateZ(9.5rem) rotateY(-40deg);
+              filter: grayscale(0.4) brightness(0.8);
+            }
+            &:has(+ * + * + :hover) {
+              transform: translateZ(4.5rem) rotateY(-35deg);
+              filter: grayscale(0.6) brightness(0.7);
+            }
+            &:has(+ * + * + * + :hover) {
+              transform: translateZ(1.5rem) rotateY(-25deg);
+              filter: grayscale(0.8) brightness(0.6);
+            }
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              width: 10px;
+              height: 100%;
+              right: -10px;
+            }
+            &::after {
+              left: -10px;
+            }
+          }
+        }
+      }
+      @keyframes img {
+        0% {
+          transform: translateX(0px);
+        }
+        5% {
+          transform: translateX(0px);
+        }
+        36% {
+          transform: translateX(200px);
+        }
+        39% {
+          transform: translateX(200px);
+        }
+        70% {
+          transform: translateX(-250px);
+        }
+        83% {
+          transform: translateX(-250px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main">
+      <div class="row">
+        <div class="img">
+          <figure><img src="imags/img1.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img2.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img3.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img4.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img5.webp" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img6.webp" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img7.avif" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img8.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img9.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img10.jpg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img11.webp" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img12.jpeg" alt="" /></figure>
+        </div>
+        <div class="img">
+          <figure><img src="imags/img13.jpg" alt="" /></figure>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
